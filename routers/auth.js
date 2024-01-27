@@ -14,14 +14,14 @@ authRoutes.post("/login", async (req, res) => {
             return res.json({ msg: "Incorrect Username or Password", status: false });
         delete user.password;
         return res.json({ status: true, user });
-        
+
     } catch (ex) {
         next(ex);
     }
 });
-// authRoutes.post("/register", register);
-// authRoutes.get("/allusers/:id", getAllUsers);
-// authRoutes.post("/setavatar/:id", setAvatar);
-// authRoutes.get("/logout/:id", logOut);
+// authRoutes.post("/register");
+// authRoutes.get("/allusers/:id");
+// authRoutes.post("/setavatar/:id");
+// authRoutes.get("/logout/:id");
 
 module.exports = authRoutes;
