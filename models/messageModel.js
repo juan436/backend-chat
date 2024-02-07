@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const MessageSchema = mongoose.Schema(
   {
-    message: { //cobjeto que representa el objeto del mensaje y dentro el texto del mensaje
+    message: { //objeto que representa el objeto del mensaje y dentro el texto del mensaje
       text: { type: String, required: true },
     },
     users: Array, // usuarios relacionados con el mensaje
