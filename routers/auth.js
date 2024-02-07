@@ -14,7 +14,7 @@ authRoutes.post("/login", async (req, res, next) => {
 
         const { password: _, ...userWithoutPassword } = user.toObject();
 
-        return res.json({ status: true, user: userWithoutPassword, token });
+        return res.json({ status: true, user: userWithoutPassword });
     } catch (err) {
         return next(err);
     }

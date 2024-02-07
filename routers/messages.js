@@ -1,8 +1,8 @@
-const MessagesRoutes = require("express").Router();
+const messagesRoutes = require("express").Router();
 const Messages = require("../models/messageModel");
 
 
-MessagesRoutes.post("/addmsg/", async (req, res, next) => {
+messagesRoutes.post("/addmsg/", async (req, res, next) => {
     try {
         const { from, to, message } = req.body;
 
@@ -24,14 +24,14 @@ MessagesRoutes.post("/addmsg/", async (req, res, next) => {
     }
 });
 
-MessagesRoutes.post("/getmsg/", async (req, res, next) => {
+messagesRoutes.post("/getmsg/", async (req, res, next) => {
     try {
         const { from, to } = req.body;
 
         if (!from || !to) {
             return res.status(400).json({ msg: "Missing required fields: 'from' or 'to'." });
         }
-        
+
         const messages = await Messages.find({
             users: {
                 $all: [from, to],
@@ -50,4 +50,4 @@ MessagesRoutes.post("/getmsg/", async (req, res, next) => {
     }
 });
 
-module.exports = MessagesRoutes;
+module.exports = messagesRoutes;
